@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React结合TyprScript开发的App
 
 ## Available Scripts
 
