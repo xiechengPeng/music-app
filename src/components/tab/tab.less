@@ -1,0 +1,25 @@
+@import '../../common/css/style.less';
+a{
+    text-decoration: none;
+    outline: none;
+}
+a:focus{
+    outline: none;
+}
+.tab{
+    overflow: hidden;
+    display: flex;
+    height: 45px;
+    align-items: center;
+    .tab-list{
+        flex:1;
+        .active{
+            color:@color-theme;
+            border-bottom: 2px solid @color-theme;
+            padding-bottom: 8px;
+        }
+        .tab-link{
+            color:@font-color;
+        }
+    }
+}

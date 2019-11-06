@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+}
+.header img {
+  width: 28px;
+  height: 28px;
+}
+.header .txt {
+  color: #ffcd32;
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: 600;
+}
