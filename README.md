@@ -1,3 +1,5 @@
+此demo基于React+redux+TypeScript+webpack+antd开发；仅用于个人项目练手，数据全是QQ音乐真实数据，请勿用于商业！
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
