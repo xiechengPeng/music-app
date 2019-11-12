@@ -1,0 +1,64 @@
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+.singer .singer-box {
+  position: relative;
+}
+.singer .singer-box .fixed {
+  font-size: 12px;
+  background: #333;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  text-align: left;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+.singer .singer-box ul .list-group {
+  padding-bottom: 20px;
+}
+.singer .singer-box ul .list-group .list-group-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 0 30px;
+}
+.singer .singer-box ul .list-group .list-group-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.singer .singer-box ul .list-group .list-group-item p {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  margin-left: 20px;
+}
+.singer .singer-box .singer-fixed {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+}
+.singer .singer-box .list-shortcut {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 4px;
+  border-radius: 20px;
+}
+.singer .singer-box .list-shortcut li {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 600;
+}
+.singer .singer-box .list-shortcut li.active {
+  color: #ffcd32;
+}

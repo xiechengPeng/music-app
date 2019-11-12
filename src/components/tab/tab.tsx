@@ -42,16 +42,6 @@ class tab extends React.Component<any,NavItem>{
     }
     //在组件挂载到DOM前调用
     componentWillMount(){
-        // let navData=this.state.navList;
-        // let nav=this.props.navs;
-        // for(let i in Tabs){
-        //     if(navData[i].url===nav){
-        //         navData[i].status=true;
-        //     }else{
-        //         navData[i].status=false;
-        //     }
-        // }
-        // let navData=this.state.navList;
         let nav=this.props.navs;
         for(let i in Tabs){
             if(Tabs[i].url===nav){
@@ -62,9 +52,9 @@ class tab extends React.Component<any,NavItem>{
         }
     }
     //组件挂载到DOM后调用
-    componentDidMount(){
+    // componentDidMount(){
 
-    }
+    // }
     render(){
         // const { navs } = this.props;
         return (

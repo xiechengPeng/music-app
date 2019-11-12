@@ -1,0 +1,42 @@
+@import '../../common/css/style.less';
+img{
+    width: 100%;
+}
+.recommend{
+    .recommend-box{
+        .mend-title{
+            color:@color-theme;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 50px;
+        }
+        .mend-list{
+            ul{
+                li{
+                    display: flex;
+                    align-items: center;
+                    padding: 0 20px 20px 20px;
+                    box-sizing: border-box;
+                    .icon{
+                        flex: 0 0 60px;
+                        width: 60px;
+                        -webkit-box-flex: 0;
+                    }
+                    .text{
+                        margin-left: 20px;
+                        flex: 1;
+                        flex-direction: column;
+                        text-align: left;
+                        .name{
+                            color:#fff;
+                            font-size: 14px;
+                        }
+                        .desc{
+                            color:@font-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

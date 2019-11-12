@@ -1,0 +1,63 @@
+@import '../../common/css/style.less';
+
+.singer{
+    .singer-box{
+        position: relative;
+        .fixed{
+            font-size: 12px;
+            background: #333;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 20px;
+            margin-bottom: 0;
+            text-align: left;
+            font-weight: 600;
+            color:@font-color;
+        }
+        ul{
+            .list-group{
+                padding-bottom: 20px;
+                h3{
+                    
+                }
+                .list-group-item{
+                    display: flex;
+                    align-items: center;
+                    padding: 20px 0 0 30px;
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                    }
+                    p{
+                        color:@font-color;
+                        font-weight: 600;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+        .singer-fixed{
+            position: fixed;
+            top: 90px;
+            left: 0;
+            width: 100%;
+        }
+        .list-shortcut{
+            position: fixed;
+            top:20%;
+            right: 0;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 4px;
+            border-radius: 20px;
+            li{
+                color:@font-color;
+                font-size: 12px;
+                font-weight: 600;
+            }
+            li.active{
+                color: #ffcd32;
+            }
+        }
+    }
+}

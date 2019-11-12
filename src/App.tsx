@@ -13,32 +13,22 @@ interface IProps {
     children: ReactHTML,
     location: ILocation
 }
-console.log(process,'asf')
 
 class App extends React.Component<IProps> {
     async proxyRequest() {
         getDiscList().then((res)=>{
-            console.log(res,'///')
         })
-		// axios({
-		// 	method: 'get',
-		// 	url: "https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg"
-		// }).then((resp) => {
-		// 	console.log(resp);
-		// }, (err) => {
-		// 	console.log(err);
-        // });
     }
-    componentWillMount(){
-        this.proxyRequest();
-    }
+    // componentWillMount(){
+    // }
     public render(){
         const {location,children}=this.props;
-        console.log(location,'/')
         return (
             <div className="App">
-                <MHeader></MHeader>
-                <Tab navs={location.pathname}></Tab>
+                <div className="top">
+                    <MHeader></MHeader>
+                    <Tab navs={location.pathname}></Tab>
+                </div>
                 <div className="data-list">
                     {children}
                 </div>

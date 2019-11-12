@@ -3,7 +3,7 @@
     text-align: center;
 }
 body{
-    background: #323232;
+    background: #222;
     font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
 }
 .App-logo {
@@ -24,4 +24,14 @@ body{
 .App-link {
     color: #09d3ac;
 
+}
+.top{
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: 2;
+    background:#222;
+}
+.data-list{
+    padding-top: 90px;
 }

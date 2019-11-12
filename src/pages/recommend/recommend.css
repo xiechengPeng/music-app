@@ -1,0 +1,39 @@
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
+}
+img {
+  width: 100%;
+}
+.recommend .recommend-box .mend-title {
+  color: #ffcd32;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 50px;
+}
+.recommend .recommend-box .mend-list ul li {
+  display: flex;
+  align-items: center;
+  padding: 0 20px 20px 20px;
+  box-sizing: border-box;
+}
+.recommend .recommend-box .mend-list ul li .icon {
+  flex: 0 0 60px;
+  width: 60px;
+  -webkit-box-flex: 0;
+}
+.recommend .recommend-box .mend-list ul li .text {
+  margin-left: 20px;
+  flex: 1;
+  flex-direction: column;
+  text-align: left;
+}
+.recommend .recommend-box .mend-list ul li .text .name {
+  color: #fff;
+  font-size: 14px;
+}
+.recommend .recommend-box .mend-list ul li .text .desc {
+  color: rgba(255, 255, 255, 0.5);
+}

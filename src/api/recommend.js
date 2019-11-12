@@ -4,6 +4,7 @@ import axios from 'axios';
 export function getDiscList() {
     // 线上环境地址，需要配置修改
     const url = '/api/getDiscList';
+    ///splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg
 
     const data = Object.assign({}, commonParams, {
         platform: 'yqq',
@@ -18,10 +19,6 @@ export function getDiscList() {
     })
 
     return axios.get(url, {
-        // headers: {
-        //     "Referer": 'https://c.y.qq.com/',
-        //     "Host": 'c.y.qq.com',
-        // },
         params: data
     }).then((res) => {
         return Promise.resolve(res.data)

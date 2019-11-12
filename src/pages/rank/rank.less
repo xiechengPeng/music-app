@@ -1,0 +1,44 @@
+@import '../../common/css/style.less';
+.rank{
+    .rank-box{
+        padding-bottom: 20px;
+        ul{
+            li{
+                display: flex;
+                margin:0 20px;
+                padding-top: 20px;
+                .rank-box-img{
+                    width: 100px;
+                    height: 100px;
+                    img{
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+                .rank-box-content{
+                    background: #333;
+                    padding:0 20px;
+                    flex: 1;
+                    height: 100px;
+                    text-align: left;
+                    justify-content: center;
+                    display: flex;
+                    line-height: 26px;
+                    flex-direction: column;
+                    overflow: hidden;
+                    .rank-box-sp{
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        color: @font-color;
+                    }
+                    span{
+                        color: @font-color;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}

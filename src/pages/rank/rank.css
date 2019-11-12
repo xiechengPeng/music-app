@@ -1,0 +1,48 @@
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
+}
+img {
+  width: 100%;
+}
+.rank .rank-box {
+  padding-bottom: 20px;
+}
+.rank .rank-box ul li {
+  display: flex;
+  margin: 0 20px;
+  padding-top: 20px;
+}
+.rank .rank-box ul li .rank-box-img {
+  width: 100px;
+  height: 100px;
+}
+.rank .rank-box ul li .rank-box-img img {
+  width: 100px;
+  height: 100px;
+}
+.rank .rank-box ul li .rank-box-content {
+  background: #333;
+  padding: 0 20px;
+  flex: 1;
+  height: 100px;
+  text-align: left;
+  justify-content: center;
+  display: flex;
+  line-height: 26px;
+  flex-direction: column;
+  overflow: hidden;
+}
+.rank .rank-box ul li .rank-box-content .rank-box-sp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.5);
+}
+.rank .rank-box ul li .rank-box-content span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 600;
+}
