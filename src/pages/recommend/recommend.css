@@ -3,6 +3,17 @@ li,
 p {
   padding: 0;
   margin: 0;
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+input {
+  outline: none;
+}
+html,
+body {
+  font-weight: 600 !important;
 }
 img {
   width: 100%;

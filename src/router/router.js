@@ -1,30 +1,107 @@
-import React from 'react'
-import {Route, Switch, withRouter} from 'react-router-dom';
-import App from '../App';
+import React ,{ lazy, Suspense } from 'react'
+// import {Router,Route, Switch, withRouter,Redirect} from 'react-router-dom';
+// import App from '../App';
+// import { renderRoutes } from "react-router-config";
+// import Rank from '../pages/rank/rank';
+// import Recommend from '../pages/recommend/recommend';
+// import Search from '../pages/search/search';
+// import Singer from '../pages/singer/singer';
+// import Disc from '../pages/disc/disc';
 
-import Rank from '../pages/rank/rank';
-import Recommend from '../pages/recommend/recommend';
-import Search from '../pages/search/search';
-import Singer from '../pages/singer/singer';
+const withSuspense = (Component) => {
+  return (props) => (
+    <Suspense fallback={null}>
+      <Component {...props} />
+    </Suspense>
+  );
+}
+const Recommend = withSuspense(lazy(() => import("../pages/recommend/recommend")));
+const Rank = withSuspense(lazy(() => import("../pages/rank/rank")));
+const Search = withSuspense(lazy(() => import("../pages/search/search")));
+const Singer = withSuspense(lazy(() => import("../pages/singer/singer")));
 
-const Rout=[
-    {path:'/',component:Recommend},
-    {path:'/recommend',component:Recommend},
-    {path:'/rank',component:Rank},
-    {path:'/search',component:Search},
-    {path:'/singer',component:Singer},
+const Disc = withSuspense(lazy(() => import("../pages/disc/disc")));
+
+// const myRoute=[
+//     {path:'/',component:Recommend,exact:true},
+//     {path:'/recommend',component:Recommend,exact:true,routes:[{path:'/recommend/:id',component:Disc,exact:false}]},
+//     // {path:'/disc',component:Disc,exact:false},
+//     {path:'/rank',component:Rank,exact:true},
+//     {path:'/search',component:Search,exact:true},
+//     {path:'/singer',component:Singer,exact:true},
+// ]
+const router = [
+    {
+        path: "/recommend",
+        component: Recommend,
+        routes: [
+        {
+            path: "/recommend/:id",
+            component: Disc
+        }
+        ]
+    },
+    {
+        path: "/rank",
+        component: Rank,
+        // routes: [
+        //     {
+        //         path: "/ranking/:id",
+        //         component: Ranking
+        //     }
+        // ]
+    },
+    {
+        path: "/singer",
+        component: Singer,
+        // routes: [
+        //     {
+        //         path: "/singer/:id",
+        //         component: Singer
+        //     }
+        // ]
+    },
+    {
+        path: "/search",
+        component: Search,
+        // routes: [
+        //     {
+        //         path: "/search/album/:id",
+        //         component: Album
+        //     },
+        //     {
+        //         path: "/search/singer/:id",
+        //         component: Singer
+        //     }
+        // ]
+    },
+    {
+        component: () => (
+            <div style={{marginTop: 100, textAlign: "center"}}>
+                请求的页面不存在
+            </div>
+        )
+    }
 ]
-
-const Root = () =>(
-    <Switch>
-        <App>
-            {
+/* exact能够使得路由的匹配更严格一些
+ * true是表示严格匹配， 为false时为正常匹配
+ * 如在exact为true时，’/link’与’/’是不匹配的，但是在false的情况下它们又是匹配的
+ */
+// const Root = () =>(
+//     <Switch>
+//         <App>
+//             {/* <Redirect from="/" to="/recommend" exact /> */}
+//             {/* {renderRoutes(Rout)} */}
+//             {
                 
-                Rout.map((item,key)=>(
-                    <Route key={key} exact={true} path={item.path} component={item.component}  />
-                ))
-            }
-        </App>
-    </Switch>
-)
-export default withRouter(Root);
+//                 myRoute.map((item, key) => (
+//                     <Route key={key} exact={item.exact} path={item.path} component={item.component}  />
+//                 ))
+//             }
+            
+//         </App>
+//     </Switch>
+// )
+// export default withRouter(Root);
+
+export default router;

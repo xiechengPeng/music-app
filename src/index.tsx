@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 import './index.css';
 import Root from './router/router';
+import App from "./App"
 import * as serviceWorker from './serviceWorker';
 
 import { createStore,applyMiddleware } from 'redux';
@@ -20,11 +21,11 @@ const store = createStore(
 // sagaMiddleware.run(sagas)
 
 ReactDOM.render(
-    <BrowserRouter>
+    // <BrowserRouter>
         <Provider store={store}>
-            <Root />
-        </Provider>
-    </BrowserRouter>,
+            <App nav={Root} />
+        </Provider>,
+    // </BrowserRouter>,
     document.getElementById('root')
 );
 

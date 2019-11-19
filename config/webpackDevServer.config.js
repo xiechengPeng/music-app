@@ -131,6 +131,20 @@ module.exports = function (proxy, allowedHost) {
                     console.log(e)
                 })
             })
+            app.get('/api/getHotSearchList', function (req, res) {
+                const url = 'https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg'
+                axios.get(url, {
+                    headers: {
+                        referer: 'https://c.y.qq.com/',
+                        host: 'c.y.qq.com',
+                    },
+                    params: req.query
+                }).then((response) => {
+                    res.json(response.data)
+                }).catch((e) => {
+                    console.log(e)
+                })
+            })
 
             if (fs.existsSync(paths.proxySetup)) {
                 // This registers user provided middleware for proxy reasons

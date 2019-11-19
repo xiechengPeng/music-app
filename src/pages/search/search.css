@@ -1,0 +1,37 @@
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+input {
+  outline: none;
+}
+html,
+body {
+  font-weight: 600 !important;
+}
+.search .search-input {
+  padding: 20px;
+}
+.search .search-list {
+  padding: 0 20px;
+}
+.search .search-list h3 {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: left;
+}
+.search .search-list ul li {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 20px 10px 0;
+  border-radius: 6px;
+  background: #333;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+}

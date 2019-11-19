@@ -14,7 +14,7 @@ interface listTab{
 
 let Tabs:Array<listTab>;
 Tabs=[
-    {title:'推荐',id:1,url:'/recommend',status:false},
+    {title:'推荐',id:1,url:'/recommend',status:true},
     {title:'歌手',id:2,url:'/singer',status:false},
     {title:'排行',id:3,url:'/rank',status:false},
     {title:'搜索',id:4,url:'/search',status:false},
@@ -42,14 +42,15 @@ class tab extends React.Component<any,NavItem>{
     }
     //在组件挂载到DOM前调用
     componentWillMount(){
-        let nav=this.props.navs;
-        for(let i in Tabs){
-            if(Tabs[i].url===nav){
-                Tabs[i].status=true;
-            }else{
-                Tabs[i].status=false;
-            }
-        }
+        // console.log(this.props,'/////')
+        // let nav=this.props.navs;
+        // for(let i in Tabs){
+        //     if(Tabs[i].url===nav){
+        //         Tabs[i].status=true;
+        //     }else{
+        //         Tabs[i].status=false;
+        //     }
+        // }
     }
     //组件挂载到DOM后调用
     // componentDidMount(){
