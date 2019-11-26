@@ -2,9 +2,7 @@ import React from 'react';
 import './App.css';
 import MHeader from './components/m-header/m-header';
 import Tab from './components/tab/tab';
-import {BrowserRouter as Router, Switch, Redirect, NavLink } from 'react-router-dom'
-// import axios from 'axios';
-import {getDiscList} from './api/recommend';
+import {BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
 import router from './router/router';
 import { renderRoutes } from "react-router-config";
 
@@ -23,7 +21,7 @@ interface IProps {
 interface Stre{
     nav:any
 }
-class App extends React.Component<Stre>{
+class App extends React.Component{
     public render(){
         // const {location,children}=this.props;
         console.log(this,'///')

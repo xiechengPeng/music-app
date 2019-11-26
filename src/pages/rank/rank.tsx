@@ -2,10 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getrankList } from '../../api/rank';
 import './rank.css';
-import LazyLoad from 'react-lazy-load';
+import LazyLoad, { forceCheck } from "react-lazyload"
+import { renderRoutes } from "react-router-config";
 
-
-class Rank extends React.Component{
+export interface IProps{
+    match:Imatch,
+    history:any,
+    route:any
+}
+export interface Imatch{
+    url:string
+}
+class Rank extends React.Component<IProps>{
     public state={
         topList:[]
     }
@@ -22,22 +30,25 @@ class Rank extends React.Component{
             }
         })
     }
-    // componentWillMount(){
-
-    // };
+    rankItem(url:string):void{
+        this.props.history.push({
+            pathname: url
+        })
+    };
     componentDidMount(){
         this.getRankList();
     };
     render(){
+        const { match,route } = this.props;
         return (
-            <div className="rank">
+            <div className="rank" onScroll={e=>forceCheck()}>
                 <div className="rank-box">
                     <ul>
                             {
                                 this.state.topList.map((item,index)=>(
-                                    <li key={index}>
+                                    <li key={index} onClick={this.rankItem.bind(this,`${match.url}/${item.id}`)}>
                                         <div className="rank-box-img">
-                                            <LazyLoad>
+                                            <LazyLoad placeholder={<img src={require("../../assets/music.png")} alt="music" />}>
                                                 <img src={item.picUrl} alt=""/>
                                             </LazyLoad>
                                         </div>
@@ -56,6 +67,7 @@ class Rank extends React.Component{
                             }
                     </ul>
                 </div>
+                { renderRoutes(route.routes) }
             </div>
         )
     }

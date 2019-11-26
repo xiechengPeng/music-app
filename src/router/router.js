@@ -21,15 +21,9 @@ const Search = withSuspense(lazy(() => import("../pages/search/search")));
 const Singer = withSuspense(lazy(() => import("../pages/singer/singer")));
 
 const Disc = withSuspense(lazy(() => import("../pages/disc/disc")));
+const RankItem = withSuspense(lazy(() => import("../pages/rankItem/rankItem")));
+const SingerDetail = withSuspense(lazy(() => import("../pages/singer-detail/singer-detail")));
 
-// const myRoute=[
-//     {path:'/',component:Recommend,exact:true},
-//     {path:'/recommend',component:Recommend,exact:true,routes:[{path:'/recommend/:id',component:Disc,exact:false}]},
-//     // {path:'/disc',component:Disc,exact:false},
-//     {path:'/rank',component:Rank,exact:true},
-//     {path:'/search',component:Search,exact:true},
-//     {path:'/singer',component:Singer,exact:true},
-// ]
 const router = [
     {
         path: "/recommend",
@@ -44,22 +38,22 @@ const router = [
     {
         path: "/rank",
         component: Rank,
-        // routes: [
-        //     {
-        //         path: "/ranking/:id",
-        //         component: Ranking
-        //     }
-        // ]
+        routes: [
+            {
+                path: "/rank/:id",
+                component: RankItem
+            }
+        ]
     },
     {
         path: "/singer",
         component: Singer,
-        // routes: [
-        //     {
-        //         path: "/singer/:id",
-        //         component: Singer
-        //     }
-        // ]
+        routes: [
+            {
+                path: "/singer/:id",
+                component: SingerDetail
+            }
+        ]
     },
     {
         path: "/search",

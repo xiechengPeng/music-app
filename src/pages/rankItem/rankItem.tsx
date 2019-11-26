@@ -1,7 +1,6 @@
-import  React from 'react';
-import './disc.css';
-import { getSongList } from '../../api/disc';
+import React from "react";
 import MusicList from '../../components/music-list/music-list';
+import { getMusicList } from '../../api/rank';
 import { createSong, isValidMusic, processSongsUrl } from '../../common/js/song';
 
 export interface IProps{
@@ -13,25 +12,27 @@ export interface Imatch{
 interface Iparams{
     params:Imatch
 }
-class disc extends React.Component<IProps>{
+
+class rankItem extends React.Component<IProps>{
     public state={
         songList:[],
         title:'',
         bgimage:''
     }
+
     componentDidMount(){
         let ID=this.props.match.params.id
-        this._getSongList(ID);
+        this._getMusicList(ID);
     }
-    _getSongList(id:string){
-        getSongList(id).then(res=>{
+    _getMusicList(id:string){
+        getMusicList(id).then(res=>{
             try {
                 if(res.code===0){
-                    processSongsUrl(this._normalizeSongs(res.cdlist[0].songlist)).then((songs)=>{
+                    processSongsUrl(this._normalizeSongs(res.songlist)).then((songs)=>{
                         this.setState({
                             songList:songs,
-                            title:res.cdlist[0].dissname,
-                            bgimage:res.cdlist[0].logo
+                            title:res.topinfo.ListName,
+                            bgimage:songs[0].image
                         })
                     })
                 }
@@ -42,24 +43,22 @@ class disc extends React.Component<IProps>{
     }
     _normalizeSongs (list) {
         let ret = [];
-        list.forEach((musicData) => {
+        list.forEach((item) => {
+            const musicData = item.data
             if (isValidMusic(musicData)) {
                 ret.push(createSong(musicData));
             }
         })
         return ret
     }
+
     render(){
         const { songList } = this.state;
         return (
-            <div className="disc">
+            <div className="rankItem">
                 <MusicList musicData={songList} bgimage={this.state.bgimage} title={this.state.title}></MusicList>
             </div>
         )
     }
 }
-
-export default disc;
-
-
-
+export default rankItem;

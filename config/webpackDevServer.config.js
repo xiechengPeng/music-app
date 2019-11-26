@@ -7,6 +7,8 @@ const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const paths = require('./paths');
 const fs = require('fs');
 const axios = require('axios');
+const bodyParser = require('body-parser');
+
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
@@ -139,6 +141,42 @@ module.exports = function (proxy, allowedHost) {
                         host: 'c.y.qq.com',
                     },
                     params: req.query
+                }).then((response) => {
+                    res.json(response.data)
+                }).catch((e) => {
+                    console.log(e)
+                })
+            })
+            app.get('/api/getSongList', function (req, res) {
+                const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
+                axios.get(url, {
+                    headers: {
+                        referer: 'https://c.y.qq.com/',
+                        host: 'c.y.qq.com',
+                    },
+                    params: req.query
+                }).then((response) => {
+                    let ret = response.data
+                    if (typeof ret === 'string') {
+                        const reg = /^\w+\(({.+})\)$/
+                        const matches = ret.match(reg)
+                        if (matches) {
+                            ret = JSON.parse(matches[1])
+                        }
+                    }
+                    res.json(ret)
+                }).catch((e) => {
+                    console.log(e)
+                })
+            })
+            app.post('/api/getPurlUrl', bodyParser.json(), function (req, res) {
+                const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+                axios.post(url, req.body, {
+                    headers: {
+                        referer: 'https://y.qq.com/',
+                        origin: 'https://y.qq.com',
+                        'Content-type': 'application/x-www-form-urlencoded'
+                    }
                 }).then((response) => {
                     res.json(response.data)
                 }).catch((e) => {

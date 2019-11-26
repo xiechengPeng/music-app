@@ -23,7 +23,7 @@ const store = createStore(
 ReactDOM.render(
     // <BrowserRouter>
         <Provider store={store}>
-            <App nav={Root} />
+            <App />
         </Provider>,
     // </BrowserRouter>,
     document.getElementById('root')

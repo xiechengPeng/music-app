@@ -1,25 +1,20 @@
 import React from 'react';
 import Slider from "../../base/slider/slider";
 import { connect } from 'react-redux';
-// import { Link} from 'react-router-dom';
 import {withRouter} from "react-router-dom";
-// import { getDiscList } from "../../actions/recommend";
 import { getDiscList } from '../../api/recommend';
 import './recommend.css';
-import LazyLoad from 'react-lazy-load';
-import { renderRoutes } from "react-router-config"
+import LazyLoad, { forceCheck } from "react-lazyload"
+import { renderRoutes } from "react-router-config";
 export interface IProps{
     match:Imatch,
     history:any,
     route:any
 }
-interface Imatch{
+export interface Imatch{
     url:string
 }
 class Recommend extends React.Component<IProps>{
-    constructor(props){
-        super(props);
-    }
     public state={
         dataList:[],
     };
@@ -43,9 +38,8 @@ class Recommend extends React.Component<IProps>{
     };
     public render(){
         const { match,route } = this.props;
-        console.log(this.props,'ss')
         return (
-            <div className="recommend">
+            <div className="recommend" onScroll={e=>forceCheck()}>
                 <Slider></Slider>
                 <div className="recommend-box">
                     <div className="mend-title">
@@ -56,17 +50,15 @@ class Recommend extends React.Component<IProps>{
                             {
                                 this.state.dataList.map((item,inx)=>(
                                     <li key={inx} onClick={this.selectItem.bind(this,`${match.url}/${item.dissid}`)}>
-                                        {/* <Link to={`/${match.url}/${item.dissid}`}> */}
-                                            <div className="icon">
-                                                <LazyLoad height={60}>
-                                                    <img src={item.imgurl} alt=""/>
-                                                </LazyLoad>
-                                            </div>
-                                            <div className="text">
-                                                <h3 className="name">{item.creator.name}</h3>
-                                                <p className="desc">{item.dissname}</p>
-                                            </div>
-                                        {/* </Link> */}
+                                        <div className="icon">
+                                            <LazyLoad height={60} placeholder={<img src={require("../../assets/music.png")} alt="music" />}>
+                                                <img src={item.imgurl} alt=""/>
+                                            </LazyLoad>
+                                        </div>
+                                        <div className="text">
+                                            <h3 className="name">{item.creator.name}</h3>
+                                            <p className="desc">{item.dissname}</p>
+                                        </div>
                                     </li>
                                 ))
                             }

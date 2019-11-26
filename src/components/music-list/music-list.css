@@ -1,0 +1,76 @@
+ul,
+li,
+p,
+h3 {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+input {
+  outline: none;
+}
+html,
+body {
+  font-weight: 600 !important;
+}
+.music-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #333;
+  z-index: 99;
+}
+.music-list .disc-top .disc-img {
+  position: relative;
+}
+.music-list .disc-top .disc-img .disc-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+}
+.music-list .disc-top .disc-img .disc-title i {
+  width: 20px;
+}
+.music-list .disc-top .disc-img .disc-title h3 {
+  flex: 1;
+  color: #ffcd32;
+}
+.music-list .disc-top .disc-content {
+  background: #333;
+  position: absolute;
+  top: 263px;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  overflow-y: scroll;
+  padding: 20px 30px;
+}
+.music-list .disc-top .disc-content li {
+  text-align: left;
+  height: 64px;
+}
+.music-list .disc-top .disc-content li h3 {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.music-list .disc-top .disc-content li p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

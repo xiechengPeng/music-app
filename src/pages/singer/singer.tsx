@@ -3,11 +3,21 @@ import { connect } from 'react-redux';
 import { getSingerList } from '../../api/singer';
 import './singer.css';
 import SinGer from '../../common/js/singer';
+import LazyLoad, { forceCheck } from "react-lazyload";
+import { renderRoutes } from "react-router-config";
+export interface IProps{
+    match:Imatch,
+    history:any,
+    route:any
+}
+export interface Imatch{
+    url:string
+}
 
 const HOT_SINGER = 10;
 const HOT_NAME = '热门';
 let listHeight=[];
-class Singer extends React.Component{
+class Singer extends React.Component<IProps>{
 
     public state={
         singerList:[],
@@ -113,17 +123,23 @@ class Singer extends React.Component{
     // componentWillMount(){
        
     // };
+    singerDetail(url:string):void{
+        this.props.history.push({
+            pathname: url
+        })
+    };
     componentDidMount(){
         this._getSingerList();
-        window.addEventListener('scroll',this.bindScroll,true)
+        window.addEventListener('scroll',this.bindScroll)
     }
     componentWillUnmount(){
-        window.removeEventListener('scroll',this.bindScroll,true)
+        window.removeEventListener('scroll',this.bindScroll)
     }
 
     public render(){
+        const { match,route } = this.props;
         return (
-            <div className="singer">
+            <div className="singer" onScroll={e=>forceCheck()}>
                 <div className="singer-box">
                     <ul>
                         {
@@ -133,8 +149,10 @@ class Singer extends React.Component{
                                     <ul className="">
                                         {
                                             item.items.map((group,inx)=>(
-                                                <li className="list-group-item" key={inx}>
-                                                    <img src={group.avatar} alt=""/>
+                                                <li className="list-group-item" key={inx} onClick={this.singerDetail.bind(this,`${match.url}/${group.id}`)}>
+                                                    <LazyLoad height={60} placeholder={<img src={require("../../assets/music.png")} alt="music" />}>
+                                                        <img src={group.avatar} alt=""/>
+                                                    </LazyLoad>
                                                     <p>{group.name}</p>
                                                 </li>
                                             ))
@@ -157,6 +175,7 @@ class Singer extends React.Component{
                         <div className="fixed-title">{this.state.hatHTML}</div>
                     </div>
                 </div>
+                { renderRoutes(route.routes) }
             </div>
         )
     }
