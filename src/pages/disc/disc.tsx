@@ -3,7 +3,6 @@ import './disc.css';
 import { getSongList } from '../../api/disc';
 import MusicList from '../../components/music-list/music-list';
 import { createSong, isValidMusic, processSongsUrl } from '../../common/js/song';
-
 export interface IProps{
     match:Iparams,
 }
@@ -17,10 +16,10 @@ class disc extends React.Component<IProps>{
     public state={
         songList:[],
         title:'',
-        bgimage:''
+        bgimage:'',
     }
     componentDidMount(){
-        let ID=this.props.match.params.id
+        let ID=this.props.match.params.id;
         this._getSongList(ID);
     }
     _getSongList(id:string){

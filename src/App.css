@@ -35,3 +35,10 @@ body{
 .data-list{
     padding-top: 90px;
 }
+.switch-wrapper {
+    position: relative;
+}
+
+.switch-wrapper>div {
+    position: absolute;
+}

@@ -5,7 +5,6 @@ import Tab from './components/tab/tab';
 import {BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
 import router from './router/router';
 import { renderRoutes } from "react-router-config";
-
 interface ILocation {
     pathname: string
 }

@@ -59,3 +59,21 @@
         }
     }
 }
+.fade-enter {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0)
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: transform .3s;
+    transform: translate3d(0, 0, 0)
+}
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit-active {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: opacity 200ms, transform 300ms;
+}
