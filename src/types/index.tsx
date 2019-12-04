@@ -10,3 +10,6 @@ export const REMOVE_SONG_FROM_LIST = "REMOVE_SONG";
 
 // 设置歌曲列表
 export const SET_SONGS = "SET_SONGS";
+
+//歌手
+export const GET_RECOMMEND_LIST = 'GET_RECOMMEND_LIST';

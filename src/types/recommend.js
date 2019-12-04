@@ -1,1 +1,0 @@
-export const GET_RECOMMEND_LIST = 'GET_RECOMMEND_LIST';

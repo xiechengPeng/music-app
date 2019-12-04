@@ -1,0 +1,18 @@
+ul,
+li,
+p,
+h3 {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+input {
+  outline: none;
+}
+html,
+body {
+  font-weight: 600 !important;
+}

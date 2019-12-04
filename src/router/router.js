@@ -9,19 +9,19 @@ import React ,{ lazy, Suspense } from 'react'
 // import Disc from '../pages/disc/disc';
 
 const withSuspense = (Component) => {
-  return (props) => (
-    <Suspense fallback={null}>
-      <Component {...props} />
-    </Suspense>
-  );
+    return (props) => (
+        <Suspense fallback={null}>
+            <Component {...props} />
+        </Suspense>
+    );
 }
 const Recommend = withSuspense(lazy(() => import("../pages/recommend/recommend")));
 const Rank = withSuspense(lazy(() => import("../pages/rank/rank")));
 const Search = withSuspense(lazy(() => import("../pages/search/search")));
 const Singer = withSuspense(lazy(() => import("../pages/singer/singer")));
 
-const Disc = withSuspense(lazy(() => import("../pages/disc/disc")));
-const RankItem = withSuspense(lazy(() => import("../pages/rankItem/rankItem")));
+const Disc = withSuspense(lazy(() => import("../containers/disc")));
+const RankItem = withSuspense(lazy(() => import("../containers/rankItem")));
 const SingerDetail = withSuspense(lazy(() => import("../pages/singer-detail/singer-detail")));
 
 const router = [

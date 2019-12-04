@@ -5,6 +5,8 @@ import { createSong, isValidMusic, processSongsUrl } from '../../common/js/song'
 
 export interface IProps{
     match:Iparams,
+    setSongs:any,
+    changeCurrentSong:any
 }
 export interface Imatch{
     id:string
@@ -12,15 +14,18 @@ export interface Imatch{
 interface Iparams{
     params:Imatch
 }
-
+//定义当前组件this指向
+let _this=null;
 class rankItem extends React.Component<IProps>{
     public state={
         songList:[],
         title:'',
-        bgimage:''
+        bgimage:'',
+        _this:null
     }
 
     componentDidMount(){
+        _this=this;
         let ID=this.props.match.params.id
         this._getMusicList(ID);
     }
@@ -44,19 +49,25 @@ class rankItem extends React.Component<IProps>{
     _normalizeSongs (list) {
         let ret = [];
         list.forEach((item) => {
-            const musicData = item.data
+            const musicData = item.data;
             if (isValidMusic(musicData)) {
                 ret.push(createSong(musicData));
             }
         })
-        return ret
+        return ret;
     }
-
+    selectSong(song){
+        _this.props.setSongs([song]);
+        _this.props.changeCurrentSong(song);
+    }
+    childs=(data)=>{
+        console.log(data,'====')
+    }
     render(){
         const { songList } = this.state;
         return (
             <div className="rankItem">
-                <MusicList musicData={songList} bgimage={this.state.bgimage} title={this.state.title}></MusicList>
+                <MusicList musicData={songList} bgimage={this.state.bgimage} title={this.state.title} setSongs={this.selectSong}></MusicList>
             </div>
         )
     }

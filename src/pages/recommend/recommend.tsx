@@ -1,11 +1,11 @@
 import React from 'react';
 import Slider from "../../base/slider/slider";
-import { connect } from 'react-redux';
-import {withRouter} from "react-router-dom";
 import { getDiscList } from '../../api/recommend';
 import './recommend.css';
 import LazyLoad, { forceCheck } from "react-lazyload"
 import { renderRoutes } from "react-router-config";
+import { connect } from "react-redux";
+
 export interface IProps{
     match:Imatch,
     history:any,
@@ -71,15 +71,4 @@ class Recommend extends React.Component<IProps>{
     }
 }
 
-
-const mapStateToProps = (state) => {
-    return {state}
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getDetail: (id, params) => {
-            dispatch()
-        },
-    }
-}
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Recommend));
+export default Recommend;

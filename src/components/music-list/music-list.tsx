@@ -1,13 +1,13 @@
 import React from 'react';
 import { Icon } from 'antd';
 import './music-list.css';
-import SongList from '../../base/song-list/song-list';
 import { CSSTransition } from "react-transition-group";
 
 interface IProps{
     musicData:any,
     title:string,
-    bgimage:string
+    bgimage:string,
+    setSongs?:any,
 }
 class musicList extends React.Component<IProps>{
     public state={
@@ -18,7 +18,7 @@ class musicList extends React.Component<IProps>{
             show: true
         });
     }
-    back(){
+    back():void{
         this.setState({
             show: false
         });
@@ -26,6 +26,9 @@ class musicList extends React.Component<IProps>{
         setTimeout(()=>{
             window.history.go(-1);
         },100)
+    }
+    musicSetSongs(song){
+        this.props.setSongs(song)
     }
     render(){
         let { musicData,bgimage,title} = this.props;
@@ -40,7 +43,19 @@ class musicList extends React.Component<IProps>{
                             </div>
                             <img src={bgimage} alt=""/>
                         </div>
-                        <SongList songData={musicData}></SongList>
+                        {/* <SongList songData={musicData} setsongs={this.musicSetSongs}></SongList> */}
+                        <div className="disc-content">
+                            <ul>
+                                {
+                                    musicData.map((song,inx)=>(
+                                        <li key={inx} onClick={this.musicSetSongs.bind(this,song)}>
+                                            <h3>{song.name}</h3>
+                                            <p>{song.singer}·{song.album}</p>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </CSSTransition>

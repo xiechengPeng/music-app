@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { getrankList } from '../../api/rank';
 import './rank.css';
 import LazyLoad, { forceCheck } from "react-lazyload"
@@ -73,14 +72,4 @@ class Rank extends React.Component<IProps>{
     }
 }
 
-const mapStateToProps = (state) => {
-    return {state}
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getDetail: (id, params) => {
-            dispatch()
-        },
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Rank);
+export default Rank;

@@ -1,6 +1,6 @@
 import { API_RECOMMEND_GET_LIST } from '../api/utilApi/recommend';
 
-import { GET_RECOMMEND_LIST } from '../types/recommend';
+import { GET_RECOMMEND_LIST } from '../types/index';
 
 export const TypeGetDiscList = (payload) => {
     return {
