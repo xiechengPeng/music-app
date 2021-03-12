@@ -59,7 +59,7 @@
     "react": "^16.11.0",
     "react-app-polyfill": "^1.0.4",
     "react-app-rewired": "2.0.2-next.0",
-    "react-dev-utils": "^9.1.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.11.0",
     "react-lazy-load": "^3.0.13",
     "react-lazyload": "^2.6.5",
